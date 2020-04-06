@@ -8,13 +8,14 @@ class Kitchenware
 public:
 	int inventory_number;
 	string type_name;
+	///Kitchenware() {};
 	Kitchenware(int inventory_number);
 	virtual ~Kitchenware() = 0 {};
 	virtual string Print();
 };
 
 //плита
-class Stove : public Kitchenware
+class Stove : virtual public Kitchenware
 {
 public:
 	string color;
@@ -23,7 +24,7 @@ public:
 };
 
 //кастрюля
-class Pan : public Kitchenware
+class Pan : virtual public Kitchenware
 {
 public:
 	int volume;
@@ -50,7 +51,7 @@ public:
 };
 
 //мультиварка
-class Slow_cooker : public Electric_stove, public Pan
+class Slow_cooker : public Electric_stove, virtual public Pan
 {
 public:
 	bool is_pressure_cooker;

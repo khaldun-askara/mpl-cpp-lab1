@@ -33,7 +33,7 @@ string Pan::Print()
 	return Kitchenware::Print() + ", объём: " + to_string(volume);
 }
 
-Electric_stove::Electric_stove(int inventory_number, string color, int power) : Stove(inventory_number, color)
+Electric_stove::Electric_stove(int inventory_number, string color, int power) : Kitchenware(inventory_number), Stove(inventory_number, color)
 {
 	this->power = power;
 	this->type_name = "Электрическая плита";
@@ -44,7 +44,7 @@ string Electric_stove::Print()
 	return Stove::Print() + ", мощность: " + to_string(power);
 }
 
-Gas_stove::Gas_stove(int inventory_number, string color, int gas_outgo) : Stove(inventory_number, color)
+Gas_stove::Gas_stove(int inventory_number, string color, int gas_outgo) : Kitchenware(inventory_number), Stove(inventory_number, color)
 {
 	this->gas_outgo = gas_outgo;
 	this->type_name = "Газовая плита";
@@ -56,7 +56,7 @@ string Gas_stove::Print()
 }
 
 Slow_cooker::Slow_cooker(int inventory_number, string color, int power, int volume, bool is_pressure_cooker) :
-	Pan(inventory_number, volume),
+	Kitchenware(inventory_number), Pan(inventory_number, volume),
 	Electric_stove(inventory_number, color, power) 
 {
 	this->is_pressure_cooker = is_pressure_cooker;
