@@ -454,7 +454,7 @@ void DelByInvNUmberDialog()
 	int volume;
 	while (true)
 	{
-		cout << "¬ведите инвентарный номер:" << endl;
+		cout << "¬ведите инвентарный номер (дл€ выхода введите -1):" << endl;
 		cin >> answer;
 		try
 		{
@@ -465,6 +465,8 @@ void DelByInvNUmberDialog()
 			cout << "¬ведено не число" << endl;
 			continue;
 		}
+		if (invent_number == -1)
+			return;
 		if (!find(tree, invent_number))
 		{
 			cout << "Ќомер не найден" << endl;
@@ -481,7 +483,7 @@ void OutputDialog()
 	string answer;
 	while (true)
 	{
-		cout << "¬ыберите тип вывода: 1 Ч пр€мой, 2 Ч обратный, 3 Ч симметричный, 0 Ч выход";
+		cout << "¬ыберите тип вывода: 1 Ч пр€мой, 2 Ч обратный, 3 Ч симметричный, 0 Ч выход" << endl;
 		cin >> answer;
 		if (answer == "" || answer[0] == '0')
 		{
